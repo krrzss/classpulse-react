@@ -30,11 +30,11 @@ export default function LandingPage() {
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading leading-[1.1] tracking-tight text-foreground">
-                Unlock Every Student's <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">Potential</span>
+                ClassPulse: <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">Unlock Every Student's Potential</span>
               </h1>
               
               <p className="text-xl text-muted-foreground max-w-xl leading-relaxed">
-                Go beyond attendance. Track performance, behavior, and engagement with our AI-driven analytics platform designed for modern education.
+                Go beyond attendance. Track performance, behavior, and engagement with ClassPulse's AI-driven analytics platform designed for modern education.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -59,7 +59,7 @@ export default function LandingPage() {
                     +2k
                   </div>
                 </div>
-                <p className="text-sm font-medium">Trusted by 50+ Schools</p>
+                <p className="text-sm font-medium">Trusted by 50+ Schools with ClassPulse</p>
               </div>
             </div>
             
@@ -174,7 +174,7 @@ export default function LandingPage() {
                 Ready to transform your educational journey?
               </h2>
               <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto">
-                Join thousands of students and teachers using EduTrack AI to achieve better results.
+                Join thousands of students and teachers using ClassPulse to achieve better results.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Link href="/login">

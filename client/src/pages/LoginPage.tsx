@@ -32,7 +32,7 @@ export default function LoginPage() {
             <GraduationCap className="h-8 w-8" />
           </div>
           <h1 className="text-3xl font-bold font-heading tracking-tight">Welcome Back</h1>
-          <p className="text-muted-foreground">Sign in to your EduTrack account</p>
+          <p className="text-muted-foreground">Sign in to your ClassPulse account</p>
         </div>
 
         <Card className="border-muted/40 shadow-xl">

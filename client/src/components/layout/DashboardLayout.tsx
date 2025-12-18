@@ -39,7 +39,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <SidebarHeader className="h-16 border-b flex items-center justify-center px-4">
             <div className="flex items-center gap-2 w-full overflow-hidden transition-all duration-300 group-data-[collapsible=icon]:justify-center">
               <GraduationCap className="h-6 w-6 text-primary shrink-0" />
-              <span className="font-bold font-heading text-lg group-data-[collapsible=icon]:hidden">EduTrack</span>
+              <span className="font-bold font-heading text-lg group-data-[collapsible=icon]:hidden">ClassPulse</span>
             </div>
           </SidebarHeader>
           

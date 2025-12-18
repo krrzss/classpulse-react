@@ -20,7 +20,7 @@ export default function LandingLayout({ children }: { children: React.ReactNode 
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <GraduationCap className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold font-heading tracking-tight">EduTrack AI</span>
+            <span className="text-xl font-bold font-heading tracking-tight">ClassPulse</span>
           </div>
 
           {/* Desktop Nav */}
@@ -78,7 +78,7 @@ export default function LandingLayout({ children }: { children: React.ReactNode 
           <div>
             <div className="flex items-center gap-2 mb-4">
               <GraduationCap className="h-6 w-6 text-primary" />
-              <span className="text-lg font-bold font-heading">EduTrack AI</span>
+              <span className="text-lg font-bold font-heading">ClassPulse</span>
             </div>
             <p className="text-sm text-muted-foreground">
               Empowering students and teachers with data-driven insights for better learning outcomes.
@@ -112,7 +112,7 @@ export default function LandingLayout({ children }: { children: React.ReactNode 
           </div>
         </div>
         <div className="container mx-auto px-4 mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
-          © 2024 EduTrack AI. All rights reserved.
+          © 2024 ClassPulse. All rights reserved.
         </div>
       </footer>
     </div>

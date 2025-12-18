@@ -40,7 +40,7 @@ export default function Dashboard() {
         </div>
         <div className={`px-4 py-2 rounded-full font-medium flex items-center gap-2 ${riskColor}`}>
           <AlertTriangle className="h-4 w-4" />
-          AI Risk Analysis: {studentData.riskLevel} Risk
+          ClassPulse Risk Analysis: {studentData.riskLevel} Risk
         </div>
       </div>
 
