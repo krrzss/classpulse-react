@@ -1,9 +1,8 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { GraduationCap, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Zap } from "lucide-react";
 
 export default function LandingLayout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,12 +19,8 @@ export default function LandingLayout({ children }: { children: React.ReactNode 
       <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="p-1.5 rounded-lg bg-gradient-to-br from-primary to-secondary text-white">
-              <Zap className="h-5 w-5" />
-            </div>
-            <span className="text-xl font-bold font-heading tracking-tight bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              ClassPulse
-            </span>
+            <GraduationCap className="h-8 w-8 text-primary" />
+            <span className="text-xl font-bold font-heading tracking-tight">EduTrack AI</span>
           </div>
 
           {/* Desktop Nav */}
@@ -82,13 +77,11 @@ export default function LandingLayout({ children }: { children: React.ReactNode 
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="p-1 rounded-lg bg-gradient-to-br from-primary to-secondary text-white">
-                <Zap className="h-5 w-5" />
-              </div>
-              <span className="text-lg font-bold font-heading">ClassPulse</span>
+              <GraduationCap className="h-6 w-6 text-primary" />
+              <span className="text-lg font-bold font-heading">EduTrack AI</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Feel the pulse of your classroom. Real-time insights for better student outcomes.
+              Empowering students and teachers with data-driven insights for better learning outcomes.
             </p>
           </div>
           
@@ -119,7 +112,7 @@ export default function LandingLayout({ children }: { children: React.ReactNode 
           </div>
         </div>
         <div className="container mx-auto px-4 mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
-          © 2024 ClassPulse. All rights reserved.
+          © 2024 EduTrack AI. All rights reserved.
         </div>
       </footer>
     </div>
