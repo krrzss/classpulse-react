@@ -4,9 +4,8 @@ import {
   LineChart, 
   Lightbulb, 
   LogOut, 
-  User, 
-  GraduationCap,
-  Bell
+  Bell,
+  Zap
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -29,7 +28,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const menuItems = [
     { name: "Dashboard", href: "/student/dashboard", icon: LayoutDashboard },
     { name: "Analytics", href: "/student/analytics", icon: LineChart },
-    { name: "Recommendations", href: "/student/recommendations", icon: Lightbulb },
+    { name: "Insights", href: "/student/recommendations", icon: Lightbulb },
   ];
 
   return (
@@ -38,8 +37,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <Sidebar collapsible="icon">
           <SidebarHeader className="h-16 border-b flex items-center justify-center px-4">
             <div className="flex items-center gap-2 w-full overflow-hidden transition-all duration-300 group-data-[collapsible=icon]:justify-center">
-              <GraduationCap className="h-6 w-6 text-primary shrink-0" />
-              <span className="font-bold font-heading text-lg group-data-[collapsible=icon]:hidden">EduTrack</span>
+              <div className="p-1.5 rounded-lg bg-gradient-to-br from-primary to-secondary text-white shrink-0">
+                <Zap className="h-4 w-4" />
+              </div>
+              <span className="font-bold font-heading text-lg group-data-[collapsible=icon]:hidden bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">ClassPulse</span>
             </div>
           </SidebarHeader>
           
@@ -82,7 +83,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <div className="flex items-center gap-4">
               <SidebarTrigger />
               <h1 className="text-lg font-semibold text-muted-foreground hidden sm:block">
-                Welcome back, {studentData.name.split(' ')[0]}
+                Hey, {studentData.name.split(' ')[0]}! 👋
               </h1>
             </div>
             

@@ -13,6 +13,7 @@ import {
   XAxis, 
   YAxis 
 } from "recharts";
+import { TrendingUp, Zap } from "lucide-react";
 
 export default function Analytics() {
   const COLORS = ['hsl(var(--chart-1))', 'hsl(var(--chart-2))', 'hsl(var(--chart-3))', 'hsl(var(--chart-4))'];
@@ -20,16 +21,21 @@ export default function Analytics() {
   return (
     <DashboardLayout>
       <div className="space-y-2">
-        <h2 className="text-3xl font-bold font-heading tracking-tight">Performance Analytics</h2>
-        <p className="text-muted-foreground">Deep dive into your academic trends and statistics.</p>
+        <div className="flex items-center gap-3">
+          <Zap className="h-6 w-6 text-primary" />
+          <div>
+            <h2 className="text-3xl font-bold font-heading tracking-tight">Performance Analytics</h2>
+            <p className="text-muted-foreground">Dive deep into your academic pulse and trends.</p>
+          </div>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Improvement Trend */}
         <Card className="col-span-1 md:col-span-2">
           <CardHeader>
-            <CardTitle>Weekly Improvement Trend</CardTitle>
-            <CardDescription>Your overall performance score over the last 6 weeks</CardDescription>
+            <CardTitle>Weekly Performance Trend</CardTitle>
+            <CardDescription>Your overall score momentum over the last 6 weeks</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="h-[300px] w-full">
@@ -64,8 +70,8 @@ export default function Analytics() {
         {/* Strengths Breakdown */}
         <Card>
           <CardHeader>
-            <CardTitle>Subject Distribution</CardTitle>
-            <CardDescription>Score breakdown by subject area</CardDescription>
+            <CardTitle>Subject Breakdown</CardTitle>
+            <CardDescription>Score distribution by subject</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="h-[300px] w-full relative">
@@ -90,7 +96,7 @@ export default function Analytics() {
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="text-center">
                   <span className="text-3xl font-bold">87.2</span>
-                  <p className="text-xs text-muted-foreground">Avg Score</p>
+                  <p className="text-xs text-muted-foreground">Avg</p>
                 </div>
               </div>
             </div>
@@ -108,17 +114,17 @@ export default function Analytics() {
         {/* Detailed Stats */}
         <Card>
           <CardHeader>
-            <CardTitle>Key Metrics Analysis</CardTitle>
-            <CardDescription>Detailed breakdown of your academic standing</CardDescription>
+            <CardTitle>Pulse Metrics</CardTitle>
+            <CardDescription>Your academic health check</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="space-y-2">
               <div className="flex items-center justify-between text-sm">
-                <span className="font-medium">Assignment Completion Rate</span>
+                <span className="font-medium">Assignment Completion</span>
                 <span className="text-muted-foreground">92%</span>
               </div>
               <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
-                <div className="h-full bg-green-500 w-[92%]"></div>
+                <div className="h-full bg-secondary w-[92%]"></div>
               </div>
             </div>
 
@@ -128,7 +134,7 @@ export default function Analytics() {
                 <span className="text-muted-foreground">85%</span>
               </div>
               <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
-                <div className="h-full bg-blue-500 w-[85%]"></div>
+                <div className="h-full bg-primary w-[85%]"></div>
               </div>
             </div>
 
@@ -138,17 +144,17 @@ export default function Analytics() {
                 <span className="text-muted-foreground">78%</span>
               </div>
               <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
-                <div className="h-full bg-yellow-500 w-[78%]"></div>
+                <div className="h-full bg-accent w-[78%]"></div>
               </div>
             </div>
 
             <div className="space-y-2">
               <div className="flex items-center justify-between text-sm">
-                <span className="font-medium">Attendance Reliability</span>
+                <span className="font-medium">Attendance Consistency</span>
                 <span className="text-muted-foreground">96%</span>
               </div>
               <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
-                <div className="h-full bg-purple-500 w-[96%]"></div>
+                <div className="h-full bg-green-500 w-[96%]"></div>
               </div>
             </div>
           </CardContent>

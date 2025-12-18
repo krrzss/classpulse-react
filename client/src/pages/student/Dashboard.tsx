@@ -11,7 +11,8 @@ import {
   Calendar, 
   CheckCircle2, 
   Clock, 
-  TrendingUp 
+  TrendingUp,
+  Zap
 } from "lucide-react";
 import { 
   Bar, 
@@ -35,12 +36,12 @@ export default function Dashboard() {
       {/* Welcome Section */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h2 className="text-3xl font-bold font-heading tracking-tight">Dashboard Overview</h2>
-          <p className="text-muted-foreground">Here's how you're performing this semester.</p>
+          <h2 className="text-3xl font-bold font-heading tracking-tight">Your Academic Pulse</h2>
+          <p className="text-muted-foreground">Track your performance, progress, and potential.</p>
         </div>
         <div className={`px-4 py-2 rounded-full font-medium flex items-center gap-2 ${riskColor}`}>
-          <AlertTriangle className="h-4 w-4" />
-          AI Risk Analysis: {studentData.riskLevel} Risk
+          <Zap className="h-4 w-4" />
+          Status: {studentData.riskLevel} Risk
         </div>
       </div>
 
@@ -48,13 +49,13 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Avg. Attendance</CardTitle>
+            <CardTitle className="text-sm font-medium">Attendance</CardTitle>
             <Calendar className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{studentData.attendance}%</div>
             <p className="text-xs text-muted-foreground mt-1">
-              <span className="text-green-600 font-medium">+2%</span> from last month
+              <span className="text-secondary font-medium">+2%</span> this week
             </p>
             <Progress value={studentData.attendance} className="h-1 mt-3" />
           </CardContent>
@@ -68,7 +69,7 @@ export default function Dashboard() {
           <CardContent>
             <div className="text-2xl font-bold">{studentData.participationScore}/100</div>
             <p className="text-xs text-muted-foreground mt-1">
-              Top 10% of class
+              Top performer
             </p>
             <Progress value={studentData.participationScore} className="h-1 mt-3" />
           </CardContent>
@@ -76,13 +77,13 @@ export default function Dashboard() {
         
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Behavior Score</CardTitle>
+            <CardTitle className="text-sm font-medium">Behavior</CardTitle>
             <CheckCircle2 className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{studentData.behavioralScore}</div>
             <p className="text-xs text-muted-foreground mt-1">
-              Excellent record
+              Excellent standing
             </p>
             <Progress value={studentData.behavioralScore} className="h-1 mt-3" />
           </CardContent>
@@ -90,7 +91,7 @@ export default function Dashboard() {
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Pending Tasks</CardTitle>
+            <CardTitle className="text-sm font-medium">Pending</CardTitle>
             <Clock className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
@@ -98,10 +99,10 @@ export default function Dashboard() {
               {studentData.assignments.filter(a => a.status !== "Completed").length}
             </div>
             <p className="text-xs text-muted-foreground mt-1">
-              Due this week
+              Tasks this week
             </p>
             <div className="h-1 mt-3 bg-muted rounded-full overflow-hidden">
-               <div className="h-full bg-orange-500 w-[40%]"></div>
+               <div className="h-full bg-accent w-[40%]"></div>
             </div>
           </CardContent>
         </Card>
@@ -112,7 +113,7 @@ export default function Dashboard() {
         <Card className="lg:col-span-4">
           <CardHeader>
             <CardTitle>Subject Performance</CardTitle>
-            <CardDescription>Current academic standing across all subjects</CardDescription>
+            <CardDescription>Your current standing across all subjects</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="h-[300px] w-full">
@@ -140,10 +141,16 @@ export default function Dashboard() {
                   />
                   <Bar 
                     dataKey="score" 
-                    fill="hsl(var(--primary))" 
+                    fill="url(#gradientBar)" 
                     radius={[4, 4, 0, 0]} 
                     barSize={40}
                   />
+                  <defs>
+                    <linearGradient id="gradientBar" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="hsl(var(--primary))" />
+                      <stop offset="100%" stopColor="hsl(var(--secondary))" />
+                    </linearGradient>
+                  </defs>
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -154,7 +161,7 @@ export default function Dashboard() {
         <Card className="lg:col-span-3">
           <CardHeader>
             <CardTitle>Recent Assignments</CardTitle>
-            <CardDescription>Keep track of your upcoming deadlines</CardDescription>
+            <CardDescription>Stay on top of deadlines</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -166,7 +173,7 @@ export default function Dashboard() {
                     </div>
                     <div>
                       <p className="font-medium text-sm">{assignment.title}</p>
-                      <p className="text-xs text-muted-foreground">{assignment.subject} • Due {assignment.dueDate}</p>
+                      <p className="text-xs text-muted-foreground">{assignment.subject}</p>
                     </div>
                   </div>
                   <Badge variant={
@@ -179,22 +186,22 @@ export default function Dashboard() {
               ))}
             </div>
             <Button variant="outline" className="w-full mt-4" asChild>
-              <Link href="/student/analytics">View All Tasks</Link>
+              <Link href="/student/analytics">View All</Link>
             </Button>
           </CardContent>
         </Card>
       </div>
 
       {/* AI Insight Teaser */}
-      <Card className="bg-linear-to-r from-primary/5 to-blue-500/5 border-primary/20">
+      <Card className="bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
         <CardContent className="p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex gap-4">
             <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-              <TrendingUp className="h-6 w-6" />
+              <Zap className="h-6 w-6" />
             </div>
             <div>
-              <h3 className="font-bold text-lg">AI Recommendation Available</h3>
-              <p className="text-muted-foreground">Our AI has analyzed your recent Science test scores and has a suggestion for you.</p>
+              <h3 className="font-bold text-lg">New AI Insight Available</h3>
+              <p className="text-muted-foreground">ClassPulse detected patterns in your performance. Get personalized recommendations.</p>
             </div>
           </div>
           <Button asChild>
